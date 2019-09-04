@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
     
     def index
-      @places = Pla
+      @places = Place.all
     end
 
 end
