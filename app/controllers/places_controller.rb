@@ -15,9 +15,8 @@ class PlacesController < ApplicationController
           redirect_to root_path
         else
           render :new, status: :unprocessable_entity
-    end
+        end
         
-        redirect_to root_path
     end
     
     def show
