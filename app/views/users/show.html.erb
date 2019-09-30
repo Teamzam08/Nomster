@@ -1,7 +1,7 @@
 <div class="booyah-box">
   <div class="row">
-    <div class="col-4">
-      <%= image_tag 'user.png' %>
+    <div class="col-5">
+      <small><%= image_tag 'user.png' %></small>
     </div>
     
     <div class="col-8">
@@ -15,7 +15,7 @@
 </div>
 
 <br /><br />
-<h1 class="text-center">My Comments</h1>
+<h2 class="text-center">My Comments</h2>
 <br /><br />
 <div class="row">
   <% @user.comments.each do |comment| %>
