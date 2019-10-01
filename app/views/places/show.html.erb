@@ -65,14 +65,9 @@
 <div class="clear"></div>
 
 <!-- Photo Section -->
-<div class="booyah-box col-10 offset-1">
-<br />
+  <div class="booyah-box col-10 offset-1">
   <h1><%= @place.name %> Photos</h1>
-<br />
-<br />
-  
-<div class="clear"></div>
-<div class="row">
+  <div class="row">
     <% @place.photos.each do |photo| %>
       <div class="col-12 col-sm-6">
         <%= image_tag photo.picture %>
@@ -115,12 +110,9 @@
 
 <!-- Comment Section -->
 <div class="booyah-box col-10 offset-1">
-<br />
   <h1><%= @place.name %> Comments</h1>
-<br />
-<br />
-  <div class="clear"></div>
-  <div class="row">
+    <div class="clear"></div>
+    <div class="row">
     <% @place.comments.each do |comment| %>
       <div class="col-12 col-sm-6">
         <blockquote>
