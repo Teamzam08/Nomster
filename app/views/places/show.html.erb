@@ -39,7 +39,7 @@
 
 </div>
 
-<!-- Add a Photo modal window -->
+<!-- Photo modal window -->
   <div class="modal fade" id="PhotoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -70,20 +70,22 @@
   <h1><%= @place.name %> Photos</h1>
 <br />
 <br />
-  <div class="clear"></div>
-  <div class="row">
+  
+<div class="clear"></div>
+<div class="row">
     <% @place.photos.each do |photo| %>
       <div class="col-12 col-sm-6">
-          <%= image_tag.photo.picture %>
-          <h5><%= photo.caption %></h5>
+        <%= image_tag photo.picture %>
+        <h5><%= photo.caption %></h5>
       </div>   
    </div>
  <% end %>
-  </div>
+ </div>
     <button type="button" class="btn btn-primary btn-xsmall float-right" data-toggle="modal" data-target="#PhotoModal">Add a photo</button>
     <br/>
     <br/>
 </div>
+
 <div class="clear"></div>
 
 
