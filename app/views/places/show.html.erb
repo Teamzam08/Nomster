@@ -1,17 +1,9 @@
 <div class="booyah-box col-10 offset-1">
   <h1><%= @place.name %></h1>
-    <i><%= @place.address %></i>
+  <h2><%= @place.address %></h>
   <br/><br/>
   <p><%= @place.description %></p>
-  <div class="float-right">
-      <% if current_user && current_user == @place.user %>
-      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-      <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
-      
-      <% end %>
-  </div>
-  <br/>
-  <br/>
+ 
   <div id="map"></div>
 
  <% if @place.latitude.present? && @place.longitude.present? %>
@@ -36,8 +28,18 @@
 </script>
 <% end %>
 
-
+ <div class="float-right">
+      <% if current_user && current_user == @place.user %>
+      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+      <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
+      
+      <% end %>
+  </div>
+  <br/>
+  <br/>
 </div>
+
+<div class="clear"></div>
 
 <!-- Photo modal window -->
   <div class="modal fade" id="PhotoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -45,8 +47,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Add a Photo</h4>
-        </div>
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myPhotoModalLabel">Add a Photo</h4>
+      </div>
 
         <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
           <div class="modal-body">
@@ -55,7 +59,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <%= f.submit "Add Photo", class: 'btn btn-warning' %>
+            <%= f.submit "Add Photo", class: 'btn btn-primary' %>
           </div>
         <% end %>
       </div>
@@ -69,17 +73,19 @@
   <h1><%= @place.name %> Photos</h1>
   <div class="row">
     <% @place.photos.each do |photo| %>
-      <div class="col-12 col-sm-6">
-        <%= image_tag photo.picture %>
-        <h5><%= photo.caption %></h5>
-      </div>   
-   </div>
- <% end %>
+  		<%= image_tag photo.picture.url, class: "col-10 offset-1" %>
+ 			 <div class="col-12 col-sm-6">
+				<%= photo.caption %>
+			  <small><%= photo.user.email %></small>
+  		 </div>
+    <% end %>
  </div>
     <button type="button" class="btn btn-primary btn-xsmall float-right" data-toggle="modal" data-target="#PhotoModal">Add a photo</button>
     <br/>
     <br/>
 </div>
+
+
 
 <div class="clear"></div>
 
