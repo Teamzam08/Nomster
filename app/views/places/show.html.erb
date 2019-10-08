@@ -118,9 +118,6 @@
   </div>
 </div>
 
-
-
-
 <!--Photo Button trigger modal -->
 <div class="booyah-box col-10 offset-1">
 <div class="clear"></div>
@@ -128,10 +125,8 @@
         <% @place.photos.each do |photo| %>
             <div class="col-12 col-sm-6">
                 <blockquote>
-                    <%= image_tag photo.picture.to_s %>
-                    <p><% if photo.caption.present? %>
-                        <%= photo.caption %></p>
-                    <% end %>
+                    <%= image_tag photo.picture %>
+                    <%= photo.caption %> 
                 </blockquote>
             </div>
     </div>
