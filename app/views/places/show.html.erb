@@ -88,6 +88,7 @@
 
 
  <!-- Photo modal -->
+<div class="col-12 col-sm-12">
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
   Add a Photo
 </button>
@@ -126,13 +127,13 @@
  <div class="row col-10 offset-1">
         <% @place.photos.each do |photo| %>
             <div class="col-12 col-sm-6">
-                <blockquote class="photo-display">
-
-                    <%= image_tag photo.picture %>
+                <blockquote>
+                    <%= image_tag photo.picture.to_s %>
                     <p><% if photo.caption.present? %>
                         <%= photo.caption %></p>
                     <% end %>
                 </blockquote>
             </div>
-        <% end %>
-    </div></div>
+    </div>
+  </div>
+ <% end %>
